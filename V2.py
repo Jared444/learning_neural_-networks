@@ -102,9 +102,9 @@ class MultiHeadAttention(nn.Module):
         out = torch.cat([h(x) for h in self.heads], dim=-1)
         out = self.proj(out)
         return out
-
-
-class FeedForward(nn.Module): # after the tokens comunicate through self attention ffwd allows teh user to deeply
+# FeedForward Function:
+# after the tokens comunicate through self attention ffwd allows the tokens to independently think about the information it just collected
+class FeedForward(nn.Module):
     """ a simple linear layer followed by a non-linearity """
 
     def __init__(self, n_embd):
